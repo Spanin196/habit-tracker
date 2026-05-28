@@ -325,9 +325,9 @@ function applyDarkMode(enabled) {
 }
 
 darkBtn.addEventListener('click', () => {
-  const isDark = document.documentElement.classList.contains('dark');
-  localStorage.setItem('ht_dark', !isDark);
-  applyDarkMode(!isDark);
+  const next = localStorage.getItem('ht_dark') !== 'true';
+  localStorage.setItem('ht_dark', String(next));
+  applyDarkMode(next);
 });
 
 // ── Init ─────────────────────────────────────────────────────────────────────
