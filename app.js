@@ -320,12 +320,12 @@ document.getElementById('edit-modal').addEventListener('click', e => {
 const darkBtn = document.getElementById('dark-mode-btn');
 
 function applyDarkMode(enabled) {
-  document.body.classList.toggle('dark', enabled);
-  darkBtn.textContent = enabled ? '🌙' : '☀️';
+  document.documentElement.classList.toggle('dark', enabled);
+  darkBtn.textContent = enabled ? '☀️' : '🌙';
 }
 
 darkBtn.addEventListener('click', () => {
-  const isDark = document.body.classList.contains('dark');
+  const isDark = document.documentElement.classList.contains('dark');
   localStorage.setItem('ht_dark', !isDark);
   applyDarkMode(!isDark);
 });

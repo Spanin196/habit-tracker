@@ -443,114 +443,121 @@ main {
 }
 
 /* ── Dark mode ─────────────────────────────────────────────────────────── */
-body.dark {
+html.dark,
+html.dark body {
   background: #1a1a1a;
   color: #e8e8e8;
 }
 
-body.dark header {
+html.dark header {
   background: #1a1a1a;
   border-bottom-color: #333;
 }
 
-body.dark .edit-btn,
-body.dark .dark-mode-btn {
+html.dark .edit-btn,
+html.dark .dark-mode-btn {
   background: #2a2a2a;
   border-color: #444;
   color: #ccc;
 }
 
-body.dark .edit-btn:hover,
-body.dark .dark-mode-btn:hover {
+html.dark .edit-btn:hover,
+html.dark .dark-mode-btn:hover {
   background: #333;
   border-color: #666;
 }
 
-body.dark .date-display {
+html.dark .date-display {
   color: #666;
 }
 
-body.dark .goal-item.mindfulness  { background: #1a2a35; border-color: #2a4a60; }
-body.dark .goal-item.productivity { background: #1a2d1a; border-color: #2a4d2a; }
-body.dark .goal-item.wellbeing    { background: #2d1a28; border-color: #4d2a40; }
-body.dark .goal-item.fitness      { background: #2d1a1a; border-color: #4d2a2a; }
+html.dark .goal-item.mindfulness  { background: #1a2a35; border-color: #2a4a60; }
+html.dark .goal-item.productivity { background: #1a2d1a; border-color: #2a4d2a; }
+html.dark .goal-item.wellbeing    { background: #2d1a28; border-color: #4d2a40; }
+html.dark .goal-item.fitness      { background: #2d1a1a; border-color: #4d2a2a; }
 
-body.dark .goal-name { color: #e8e8e8; }
-body.dark .goal-detail { color: #888; }
-body.dark .goal-hint { color: #666; }
+html.dark .goal-name { color: #e8e8e8; }
+html.dark .goal-detail { color: #888; }
+html.dark .goal-hint { color: #666; }
 
-body.dark .goal-category {
+html.dark .goal-category {
   color: #aaa;
   background: rgba(255, 255, 255, 0.08);
 }
 
-body.dark .progress-bar-wrap { background: rgba(255, 255, 255, 0.08); }
-body.dark .progress-bar-fill { background: rgba(255, 255, 255, 0.35); }
+html.dark .progress-bar-wrap { background: rgba(255, 255, 255, 0.08); }
+html.dark .progress-bar-fill { background: rgba(255, 255, 255, 0.35); }
 
-body.dark .checkmark {
+html.dark .checkmark {
   border-color: #555;
   background: rgba(255, 255, 255, 0.05);
 }
 
-body.dark .goal-checkbox:hover .checkmark { border-color: #999; }
+html.dark .goal-checkbox:hover .checkmark { border-color: #999; }
 
-body.dark .modal { background: rgba(0, 0, 0, 0.6); }
+html.dark .modal { background: rgba(0, 0, 0, 0.6); }
 
-body.dark .modal-content {
+html.dark .modal-content {
   background: #242424;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
-body.dark .modal-content h2 { color: #e8e8e8; }
-body.dark .modal-subtitle { color: #666; }
+html.dark .modal-content h2 { color: #e8e8e8; }
+html.dark .modal-subtitle { color: #666; }
 
-body.dark .goal-row-labels span { color: #555; }
+html.dark .goal-row-labels span { color: #555; }
 
-body.dark .goal-row {
+html.dark .goal-row {
   background: #2a2a2a;
   border-color: #383838;
 }
 
-body.dark .goal-row input,
-body.dark .goal-row select {
+html.dark .goal-row input,
+html.dark .goal-row select {
   background: #333;
   border-color: #444;
   color: #e8e8e8;
 }
 
-body.dark .goal-row input:focus,
-body.dark .goal-row select:focus {
-  border-color: #666;
+html.dark .goal-row select option {
+  background: #333;
+  color: #e8e8e8;
 }
 
-body.dark .btn-add {
+html.dark .goal-row input:focus,
+html.dark .goal-row select:focus {
+  border-color: #666;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
+}
+
+html.dark .btn-add {
   background: transparent;
   border-color: #444;
   color: #777;
 }
 
-body.dark .btn-add:hover {
+html.dark .btn-add:hover {
   border-color: #666;
   color: #bbb;
 }
 
-body.dark .btn-primary {
+html.dark .btn-primary {
   background: #2e6b42;
 }
 
-body.dark .btn-primary:hover {
+html.dark .btn-primary:hover {
   background: #266038;
 }
 
-body.dark .btn-secondary {
+html.dark .btn-secondary {
   background: #2a2a2a;
   border-color: #444;
   color: #aaa;
 }
 
-body.dark .btn-secondary:hover {
+html.dark .btn-secondary:hover {
   background: #333;
   border-color: #666;
 }
 
-body.dark .empty-msg { color: #555; }
+html.dark .empty-msg { color: #555; }
