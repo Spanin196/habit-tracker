@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habit Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Habit Tracker</h1>
+    <button id="edit-btn" class="edit-btn">Edit</button>
+  </header>
+
+  <main>
+    <p id="date-display" class="date-display"></p>
+    <ul id="goal-list" class="goal-list"></ul>
+    <p id="empty-msg" class="empty-msg hidden">No habits yet. Click <strong>Edit</strong> to add some.</p>
+  </main>
+
+  <!-- First-time setup modal -->
+  <div id="setup-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="setup-title">
+    <div class="modal-content">
+      <h2 id="setup-title">Set Up Your Daily Habits</h2>
+      <p class="modal-subtitle">Add the habits you want to track every day.</p>
+      <div class="goal-row-labels" aria-hidden="true">
+        <span>Habit name</span>
+        <span>Target</span>
+        <span>Unit</span>
+        <span>Category</span>
+        <span></span>
+      </div>
+      <div id="setup-goals-container" class="goals-container"></div>
+      <button id="add-setup-goal-btn" class="btn-add">+ Add Habit</button>
+      <div class="modal-actions">
+        <button id="save-setup-btn" class="btn-primary">Start Tracking</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit modal -->
+  <div id="edit-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="edit-title">
+    <div class="modal-content">
+      <h2 id="edit-title">Edit Daily Habits</h2>
+      <div class="goal-row-labels" aria-hidden="true">
+        <span>Habit name</span>
+        <span>Target</span>
+        <span>Unit</span>
+        <span>Category</span>
+        <span></span>
+      </div>
+      <div id="edit-goals-container" class="goals-container"></div>
+      <button id="add-edit-goal-btn" class="btn-add">+ Add Habit</button>
+      <div class="modal-actions">
+        <button id="cancel-edit-btn" class="btn-secondary">Cancel</button>
+        <button id="save-edit-btn" class="btn-primary">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

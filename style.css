@@ -1,0 +1,421 @@
+/* ── Reset ─────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Base ──────────────────────────────────────────────────────────────── */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: #ffffff;
+  color: #2c2c2c;
+  min-height: 100vh;
+}
+
+/* ── Header ────────────────────────────────────────────────────────────── */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 32px;
+  border-bottom: 1px solid #ebebeb;
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  z-index: 10;
+}
+
+header h1 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.edit-btn {
+  padding: 8px 20px;
+  border: 1.5px solid #d0d0d0;
+  border-radius: 8px;
+  background: white;
+  color: #555;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 500;
+  font-family: inherit;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.edit-btn:hover {
+  background: #f5f5f5;
+  border-color: #b0b0b0;
+}
+
+/* ── Main ──────────────────────────────────────────────────────────────── */
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 36px 24px 60px;
+}
+
+.date-display {
+  font-size: 0.88rem;
+  color: #a0a0a0;
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+
+/* ── Goal list ─────────────────────────────────────────────────────────── */
+.goal-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.goal-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1.5px solid transparent;
+  gap: 16px;
+  transition: opacity 0.25s;
+}
+
+.goal-item.completed {
+  opacity: 0.5;
+}
+
+/* Category colours — light, desaturated */
+.goal-item.mindfulness  { background: #e4f0f9; border-color: #c2d9ee; }
+.goal-item.productivity { background: #e4f2e4; border-color: #bfdfbf; }
+.goal-item.wellbeing    { background: #f9e4f1; border-color: #eec2da; }
+.goal-item.fitness      { background: #f9e4e4; border-color: #eec2c2; }
+
+/* ── Goal info (left side) ─────────────────────────────────────────────── */
+.goal-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.goal-info.is-reps {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.goal-info.is-reps:hover .goal-name {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.goal-info.is-reps:active {
+  opacity: 0.75;
+}
+
+.goal-name {
+  font-size: 0.97rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.goal-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.goal-category {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #666;
+  background: rgba(0, 0, 0, 0.07);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.goal-detail {
+  font-size: 0.83rem;
+  color: #777;
+}
+
+.goal-hint {
+  font-size: 0.74rem;
+  color: #999;
+  font-style: italic;
+  margin-top: 1px;
+}
+
+/* Progress bar (rep goals only) */
+.progress-bar-wrap {
+  height: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.28);
+  transition: width 0.2s ease;
+}
+
+/* ── Checkbox (right side) ─────────────────────────────────────────────── */
+.goal-checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.goal-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkmark {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #b8b8b8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.65);
+  transition: background 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+
+.goal-checkbox:hover .checkmark {
+  border-color: #888;
+}
+
+.goal-checkbox input:checked + .checkmark {
+  background: #5aaa78;
+  border-color: #5aaa78;
+}
+
+.goal-checkbox input:checked + .checkmark::after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 9px;
+  border: 2px solid #ffffff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg) translate(0, -1px);
+}
+
+/* ── Empty state ───────────────────────────────────────────────────────── */
+.empty-msg {
+  color: #bbb;
+  text-align: center;
+  margin-top: 64px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ── Modal overlay ─────────────────────────────────────────────────────── */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 20px;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px 28px 24px;
+  width: 100%;
+  max-width: 640px;
+  max-height: 85vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.14);
+}
+
+.modal-content h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.modal-subtitle {
+  font-size: 0.87rem;
+  color: #999;
+  margin-top: -8px;
+}
+
+/* Column labels above goal rows */
+.goal-row-labels {
+  display: grid;
+  grid-template-columns: 1fr 80px 130px 130px 36px;
+  gap: 8px;
+  padding: 0 4px;
+  margin-bottom: -4px;
+}
+
+.goal-row-labels span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* ── Goal form rows ────────────────────────────────────────────────────── */
+.goals-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.goal-row {
+  display: grid;
+  grid-template-columns: 1fr 80px 130px 130px 36px;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 12px;
+  background: #fafafa;
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+}
+
+.goal-row input,
+.goal-row select {
+  padding: 7px 10px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  font-size: 0.88rem;
+  font-family: inherit;
+  color: #333;
+  background: white;
+  outline: none;
+  width: 100%;
+}
+
+.goal-row input:focus,
+.goal-row select:focus {
+  border-color: #999;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+.goal-row input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.goal-row input[type="number"]::-webkit-inner-spin-button,
+.goal-row input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.btn-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #c8c8c8;
+  cursor: pointer;
+  font-size: 1.3rem;
+  line-height: 1;
+  transition: color 0.15s, background 0.15s;
+  padding: 0;
+  font-family: inherit;
+}
+
+.btn-remove:hover {
+  color: #e05555;
+  background: #fef0f0;
+}
+
+/* ── Modal action buttons ──────────────────────────────────────────────── */
+.btn-add {
+  align-self: flex-start;
+  padding: 8px 16px;
+  border: 1.5px dashed #ccc;
+  border-radius: 8px;
+  background: white;
+  color: #888;
+  cursor: pointer;
+  font-size: 0.87rem;
+  font-family: inherit;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.btn-add:hover {
+  border-color: #999;
+  color: #444;
+}
+
+.btn-primary {
+  padding: 10px 24px;
+  background: #3e8a59;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 500;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+
+.btn-primary:hover {
+  background: #347a4d;
+}
+
+.btn-secondary {
+  padding: 10px 24px;
+  background: white;
+  color: #666;
+  border: 1.5px solid #d0d0d0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 500;
+  font-family: inherit;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn-secondary:hover {
+  background: #f5f5f5;
+  border-color: #b0b0b0;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
