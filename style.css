@@ -32,6 +32,28 @@ header h1 {
   letter-spacing: -0.3px;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dark-mode-btn {
+  padding: 6px 10px;
+  border: 1.5px solid #d0d0d0;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.dark-mode-btn:hover {
+  background: #f5f5f5;
+  border-color: #b0b0b0;
+}
+
 .edit-btn {
   padding: 8px 20px;
   border: 1.5px solid #d0d0d0;
@@ -419,3 +441,123 @@ main {
   gap: 10px;
   margin-top: 4px;
 }
+
+/* ── Dark mode ─────────────────────────────────────────────────────────── */
+html.dark,
+html.dark body {
+  background: #1a1a1a;
+  color: #e8e8e8;
+}
+
+html.dark header {
+  background: #1a1a1a;
+  border-bottom-color: #333;
+}
+
+html.dark .edit-btn,
+html.dark .dark-mode-btn {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #ccc;
+}
+
+html.dark .edit-btn:hover,
+html.dark .dark-mode-btn:hover {
+  background: #333;
+  border-color: #666;
+}
+
+html.dark .date-display {
+  color: #666;
+}
+
+html.dark .goal-item.mindfulness  { background: #1a2a35; border-color: #2a4a60; }
+html.dark .goal-item.productivity { background: #1a2d1a; border-color: #2a4d2a; }
+html.dark .goal-item.wellbeing    { background: #2d1a28; border-color: #4d2a40; }
+html.dark .goal-item.fitness      { background: #2d1a1a; border-color: #4d2a2a; }
+
+html.dark .goal-name { color: #e8e8e8; }
+html.dark .goal-detail { color: #888; }
+html.dark .goal-hint { color: #666; }
+
+html.dark .goal-category {
+  color: #aaa;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+html.dark .progress-bar-wrap { background: rgba(255, 255, 255, 0.08); }
+html.dark .progress-bar-fill { background: rgba(255, 255, 255, 0.35); }
+
+html.dark .checkmark {
+  border-color: #555;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+html.dark .goal-checkbox:hover .checkmark { border-color: #999; }
+
+html.dark .modal { background: rgba(0, 0, 0, 0.6); }
+
+html.dark .modal-content {
+  background: #242424;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+html.dark .modal-content h2 { color: #e8e8e8; }
+html.dark .modal-subtitle { color: #666; }
+
+html.dark .goal-row-labels span { color: #555; }
+
+html.dark .goal-row {
+  background: #2a2a2a;
+  border-color: #383838;
+}
+
+html.dark .goal-row input,
+html.dark .goal-row select {
+  background: #333;
+  border-color: #444;
+  color: #e8e8e8;
+}
+
+html.dark .goal-row select option {
+  background: #333;
+  color: #e8e8e8;
+}
+
+html.dark .goal-row input:focus,
+html.dark .goal-row select:focus {
+  border-color: #666;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
+}
+
+html.dark .btn-add {
+  background: transparent;
+  border-color: #444;
+  color: #777;
+}
+
+html.dark .btn-add:hover {
+  border-color: #666;
+  color: #bbb;
+}
+
+html.dark .btn-primary {
+  background: #2e6b42;
+}
+
+html.dark .btn-primary:hover {
+  background: #266038;
+}
+
+html.dark .btn-secondary {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #aaa;
+}
+
+html.dark .btn-secondary:hover {
+  background: #333;
+  border-color: #666;
+}
+
+html.dark .empty-msg { color: #555; }

@@ -5,11 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Habit Tracker</title>
   <link rel="stylesheet" href="style.css">
+  <script>if (localStorage.getItem('ht_dark') === 'true') document.documentElement.classList.add('dark');</script>
 </head>
 <body>
   <header>
     <h1>Habit Tracker</h1>
-    <button id="edit-btn" class="edit-btn">Edit</button>
+    <div class="header-actions">
+      <button id="dark-mode-btn" class="dark-mode-btn" aria-label="Toggle dark mode">☀️</button>
+      <button id="edit-btn" class="edit-btn">Edit</button>
+    </div>
   </header>
 
   <main>
