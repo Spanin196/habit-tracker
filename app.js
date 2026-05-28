@@ -315,9 +315,25 @@ document.getElementById('edit-modal').addEventListener('click', e => {
   }
 });
 
+// ── Dark mode ────────────────────────────────────────────────────────────────
+
+const darkBtn = document.getElementById('dark-mode-btn');
+
+function applyDarkMode(enabled) {
+  document.body.classList.toggle('dark', enabled);
+  darkBtn.textContent = enabled ? '🌙' : '☀️';
+}
+
+darkBtn.addEventListener('click', () => {
+  const isDark = document.body.classList.contains('dark');
+  localStorage.setItem('ht_dark', !isDark);
+  applyDarkMode(!isDark);
+});
+
 // ── Init ─────────────────────────────────────────────────────────────────────
 
 function init() {
+  applyDarkMode(localStorage.getItem('ht_dark') === 'true');
   const goals = loadGoals();
   if (goals.length === 0) {
     showSetupModal();
